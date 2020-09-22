@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+
+*.so
+*.a
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+C*.cmake
+cmake_install.cmake
+Testing
+build/
+
