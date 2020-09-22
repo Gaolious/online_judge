@@ -22,3 +22,8 @@ Testing
 build/
 Makefile
 
+
+##############################
+# Temporary Files
+##############################
+.*.swp
