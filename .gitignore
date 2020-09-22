@@ -1,14 +1,24 @@
+##############################
+# python
+##############################
 __pycache__/
 *.py[cod]
 
+
+##############################
+# shard/static library
+##############################
 *.so
 *.a
 
+##############################
 # CMake
+##############################
 CMakeCache.txt
 CMakeFiles
 C*.cmake
 cmake_install.cmake
 Testing
 build/
+Makefile
 
