@@ -1,25 +1,30 @@
 cmake_minimum_required(VERSION 3.10)
-set(This Sandbox)
 
-project(${This}
-    LANGUAGES CXX
-    VERSION 0.0.1
+SET(CMAKE_BUILD_TYPE DEBUG)
+
+##############################################################
+# project
+##############################################################
+project(sb CXX)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+ENABLE_TESTING()
+
+ADD_SUBDIRECTORY(sandbox)
+
+ADD_EXECUTABLE(${PROJECT_NAME} src/main.cpp)
+TARGET_LINK_LIBRARIES(
+        ${PROJECT_NAME} PUBLIC
+        sandbox
 )
 
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
-
-enable_testing()
-
-set(Headers
-    ${CMAKE_SOURCE_DIR}/inc/opt.h
-)
-
-set(Sources
-    ${CMAKE_SOURCE_DIR}/src/opt.cpp
-)
-
-add_library(${This} STATIC ${Sources} ${Headers})
-
-add_subdirectory(test)
+##############################################################
+# for testing
+##############################################################
+ADD_EXECUTABLE(sample_mem sample/mem.cpp)
+ADD_EXECUTABLE(sample_sleep sample/sleep.cpp)
+ADD_EXECUTABLE(sample_sig_fault sample/signal_seg_fault.cpp)
+ADD_EXECUTABLE(sample_div_0 sample/signal_div0.cpp)

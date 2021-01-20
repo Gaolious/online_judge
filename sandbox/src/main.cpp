@@ -1,14 +1,10 @@
 #include <stdio.h>
-#include "../inc/sum.h"
-#include "../inc/opt.h"
+#include <inc/context.h>
 
-
-int main(int argc, char **argv, char **env)
+int main(int argc, char **argv, char **envp)
 {
-    bool ret ;
+    g_ctx.initialize();
+    g_ctx.parse(argc, argv);
 
-    ret = parse_options(argc, argv);
-    if (!ret)
-        return 0;
     return 0;
 }

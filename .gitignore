@@ -21,6 +21,7 @@ cmake_install.cmake
 Testing
 build/
 Makefile
+cmake-build*
 
 
 ##############################
